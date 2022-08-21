@@ -50,3 +50,347 @@ const list = d3.selectAll("li")
     // Add your code above this line
   </script>
 </body>
+
+--Work with Dynamic Data in D3
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("h2")
+      .data(dataset)
+      .enter()
+      .append("h2")
+      // Add your code below this line
+
+      .text((d)=>d+" USD");
+
+      // Add your code above this line
+  </script>
+</body>
+
+--Add Inline Styling to Elements
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("h2")
+      .data(dataset)
+      .enter()
+      .append("h2")
+      .text((d) => (d + " USD"))
+      // Add your code below this line
+.style("font-family","verdana");
+
+--Change Styles Based on Data
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("h2")
+      .data(dataset)
+      .enter()
+      .append("h2")
+      .text((d) => (d + " USD"))
+      // Add your code below this line
+.style( 'color',(d) => d<20?'red':'green'
+);
+
+
+      // Add your code above this line
+  </script>
+</body>
+
+--Add Classes with D3
+
+<style>
+  .bar {
+    width: 25px;
+    height: 100px;
+    display: inline-block;
+    background-color: blue;
+  }
+</style>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("div")
+      .data(dataset)
+      .enter()
+      .append("div")
+      // Add your code below this line
+.attr("class","bar")
+
+
+      // Add your code above this line
+  </script>
+</body>
+
+--Update the Height of an Element Dynamically
+
+<style>
+  .bar {
+    width: 25px;
+    height: 100px;
+    display: inline-block;
+    background-color: blue;
+  }
+</style>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("div")
+      .data(dataset)
+      .enter()
+      .append("div")
+      .attr("class", "bar")
+      // Add your code below this line
+
+.style("height", (d) => d )
+
+      // Add your code above this line
+  </script>
+</body>
+
+--Change the Presentation of a Bar Chart
+
+<style>
+  .bar {
+    width: 25px;
+    height: 100px;
+    /* Add your code below this line */
+
+    
+    /* Add your code above this line */
+    display: inline-block;
+    background-color: blue;
+  }
+</style>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    d3.select("body").selectAll("div")
+      .data(dataset)
+      .enter()
+      .append("div")
+      .attr("class", "bar")
+      .style("height", (d) => (d *10 )) // Change this line
+      .style('margin','2px')
+  </script>
+</body>
+
+--Learn About SVG in D3
+
+
+<style>
+  svg {
+    background-color: pink;
+  }
+</style>
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  // Add your code below this line
+d3.select("body")
+      .append("svg")
+      
+      .style("width", w) // Change this line
+      .style('height',h)
+
+
+                  // Add your code above this line
+  </script>
+</body>
+
+--Display Shapes with SVG
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h)
+                  // Add your code below this line
+.append('rect')
+ .attr("width", 25)
+                  .attr("height", 100)
+                  .attr("x", 0)
+                  .attr("y", 0)
+
+                  // Add your code above this line
+  </script>
+</body>
+
+
+
+      // Add your code above this line
+  </script>
+</body>
+
+--Create a Bar for Each Data Point in the Set
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       // Add your code below this line
+.data(dataset)
+.enter()
+.append("rect")
+
+
+       // Add your code above this line
+       .attr("x", 0)
+       .attr("y", 0)
+       .attr("width", 25)
+       .attr("height", 100);
+  </script>
+</body>
+
+-- Dynamically Set the Coordinates for Each Bar 
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => {
+         // Add your code below this line
+
+return i*30
+
+         // Add your code above this line
+       })
+       .attr("y", 0)
+       .attr("width", (25))
+       .attr("height", 100);
+  </script>
+</body>
+
+--Dynamically Change the Height of Each Bar
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", 0)
+       .attr("width", 25)
+       .attr("height", (d, i) => 
+         // Add your code below this line
+ d * 3
+
+
+         // Add your code above this line
+       );
+  </script>
+</body>
+
+--Invert SVG Elements
+
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => 
+         // Add your code below this line
+i=100-d*3
+
+
+         // Add your code above this line
+       )
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d);
+  </script>
+</body>
+
+--Change the Color of an SVG Element
+
+<body>
+  <script>
+    const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+
+    const w = 500;
+    const h = 100;
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+    svg.selectAll("rect")
+       .data(dataset)
+       .enter()
+       .append("rect")
+       .attr("x", (d, i) => i * 30)
+       .attr("y", (d, i) => h - 3 * d)
+       .attr("width", 25)
+       .attr("height", (d, i) => 3 * d)
+       // Add your code below this line
+
+.attr('fill','navy')
+
+       // Add your code above this line
+  </script>
+</body>
